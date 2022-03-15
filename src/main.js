@@ -1,8 +1,9 @@
-import Vue from 'vue'
-import App from './App.vue'
+import bridge from '@vkontakte/vk-bridge';
 
-Vue.config.productionTip = false
+bridge.send("VKWebAppInit", {});
 
-new Vue({
-  render: h => h(App),
-}).$mount('#app')
+(async () => {
+    console.log('START');
+    console.log(await bridge.send("VKWebAppInit", {}));
+    console.log('END');
+})();
